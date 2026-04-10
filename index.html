@@ -1,380 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Zhenhua Tang Homepage</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhenhua Tang · 唐振华</title>
+  <!-- 现代清爽风格：Inter字体 + Bootstrap 5 + Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Le styles -->
-    <link href="bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 60px;
-      }
-	  
-	  .foot-fixed-bottom {
- bottom: 0;
- display: block;
- left: 0;
- margin-bottom: 0;
- position: fixed;
- right: 0;
- z-index: 1030;
- background-color: rgba(130, 130, 130, 0.8);
-}
-.foot-fixed-bottom hr {
- border-image: none;
- border-style: solid none;
- border-width: 1px 0;
- margin: 0 0 5px;
- width: 100%;
-}
-.foot-fixed-bottom p {
- color: rgb(255, 255, 255);
- font-size: 14px;
- margin: 0 12px 15px;
-}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f9fafc;
+      color: #1e1e2a;
+      line-height: 1.6;
+      padding-top: 70px;
+      padding-bottom: 40px;
+    }
 
-      /* Custom container */
-      .container {
-        margin: 0 auto;
-        max-width: 1000px;
-      }
-      .container > hr {
-        margin: 60px 0;
-      }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
 
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 80px 0;
+    /* 导航栏 */
+    .navbar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      padding: 0.5rem 0;
+    }
+
+    .navbar .nav-link {
+      font-weight: 500;
+      color: #2c2c3a !important;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem !important;
+      border-radius: 40px;
+      margin: 0 2px;
+      transition: all 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .navbar .nav-link:hover {
+      background: #eaeef5;
+      color: #0a0a0a !important;
+    }
+
+    .navbar .nav-link.active {
+      background: #1e1e2a;
+      color: white !important;
+    }
+
+    .container {
+      max-width: 1140px;
+    }
+
+    /* 卡片式区块 */
+    .section-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2rem 2rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 28px -6px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #f0f2f7;
+    }
+
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    .profile-avatar img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: 0 12px 22px -8px rgba(0,0,0,0.12);
+      border: 3px solid white;
+    }
+
+    .profile-title h2 {
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: #12121c;
+    }
+
+    .profile-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 10px;
+    }
+
+    .badge-soft {
+      background: #f0f4fc;
+      color: #1e1e2a;
+      padding: 5px 14px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .badge-soft i {
+      font-size: 0.9rem;
+      color: #3f5e8c;
+    }
+
+    .section-title {
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.8rem;
+      font-size: 1.8rem;
+      border-left: 6px solid #1e1e2a;
+      padding-left: 22px;
+      color: #0b0b15;
+    }
+
+    /* 论文条目 */
+    .pub-subsection {
+      margin-top: 1.8rem;
+    }
+    .pub-subsection h4 {
+      font-weight: 650;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #1f2b40;
+    }
+    .pub-subsection h4 i {
+      font-size: 1.2rem;
+      color: #3f5e8c;
+    }
+    .pub-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #edeef2;
+    }
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+    .pub-title {
+      font-weight: 650;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+      color: #15151f;
+    }
+    .pub-meta {
+      font-size: 0.9rem;
+      color: #4f4f66;
+      margin-bottom: 4px;
+    }
+    .pub-links a {
+      text-decoration: none;
+      font-weight: 500;
+      margin-right: 20px;
+      font-size: 0.85rem;
+      color: #2b4f7b;
+      border-bottom: 1px dotted transparent;
+    }
+    .pub-links a i {
+      margin-right: 5px;
+      font-size: 0.8rem;
+    }
+    .pub-links a:hover {
+      color: #0f1e2f;
+      border-bottom: 1px dotted #2b4f7b;
+    }
+
+    /* 列表修饰 */
+    .clean-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .clean-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f3f8;
+      display: flex;
+      align-items: baseline;
+    }
+    .clean-list li:last-child {
+      border-bottom: none;
+    }
+    .list-bullet {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #1e1e2a;
+      border-radius: 2px;
+      margin-right: 16px;
+      opacity: 0.7;
+    }
+
+    /* 相册网格 */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+      aspect-ratio: 1/1;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .page-footer {
+      margin-top: 20px;
+      text-align: right;
+      font-size: 0.8rem;
+      color: #70758a;
+      border-top: 1px solid #e2e6ed;
+      padding-top: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .profile-header {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
       }
-      .jumbotron h1 {
-        font-size: 100px;
-        line-height: 1;
+      .section-title {
+        font-size: 1.6rem;
       }
-      .jumbotron .lead {
-        font-size: 24px;
-        line-height: 1.25;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
+    }
+    .note-corresponding {
+      font-size: 0.8rem;
+      color: #5f6c86;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
 
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
+<!-- 固定导航 -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <span style="font-weight: 600; color:#13131f;">Zhenhua Tang</span>
+      <span style="font-size:0.8rem; margin-left: 10px; background: #eef2f8; padding:2px 10px; border-radius: 30px; color:#2f405b;">Postdoc Fellow</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" style="border:none; box-shadow:none;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#publication">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#activities">Service</a></li>
+        <li class="nav-item"><a class="nav-link" href="#employment">Employment</a></li>
+        <li class="nav-item"><a class="nav-link" href="#travels">Travels</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
+<main class="container">
+  <div id="home"></div>
+  <!-- 个人信息卡 (更新博士后单位) -->
+  <div class="section-card" style="padding-bottom: 1.8rem;">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <img src="zhenhuat.jpg" alt="Zhenhua Tang">
+      </div>
+      <div class="profile-title" style="flex:1;">
+        <h2>Zhenhua Tang <span style="font-weight: 400; font-size: 1.4rem; color: #4e5b73;">唐振华</span></h2>
+        <div style="font-size: 1rem; color: #2c3e5c; margin-bottom: 12px;">
+          Postdoctoral Fellow · Faculty of Science and Technology, University of Macau
+        </div>
+        <div class="profile-badges">
+          <span class="badge-soft"><i class="fas fa-map-pin"></i> Macau SAR, China</span>
+          <span class="badge-soft"><i class="fas fa-envelope"></i> zhenhuat@foxmail.com</span>
+          <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=5Iop66sAAAAJ" target="_blank" class="badge-soft text-decoration-none">
+            <i class="fab fa-google-scholar"></i> Google Scholar
+          </a>
+        </div>
+        <p style="margin-top: 18px; color: #2d3a52;">
+          <i class="fas fa-flask" style="margin-right: 8px; opacity: 0.7;"></i>
+          Supervisor: Prof. Chi-Man Pun · University of Macau
+        </p>
+      </div>
+    </div>
+  </div>
 
-      /* Customize the navbar links to be fill the entire space of the .navbar */
-      .navbar .navbar-inner {
-        padding: 0;
-      }
-      .navbar .nav {
-        margin: 0;
-        display: table;
-        width: 100%;
-      }
-      .navbar .nav li {
-        display: table-cell;
-        width: 1%;
-        float: none;
-      }
-      .navbar .nav li a {
-        font-weight: bold;
-        text-align: center;
-        border-left: 1px solid rgba(255,255,255,.75);
-        border-right: 1px solid rgba(0,0,0,.1);
-      }
-      .navbar .nav li:first-child a {
-        border-left: 0;
-        border-radius: 3px 0 0 3px;
-      }
-      .navbar .nav li:last-child a {
-        border-right: 0;
-        border-radius: 0 3px 3px 0;
-      }
-    </style>
-    <link href="bootstrap-responsive.css" rel="stylesheet">
+  <!-- Bio 更新博士后描述 -->
+  <div id="bio"></div>
+  <div class="section-card">
+    <h3 class="section-title">📋 Short Bio</h3>
+    <p style="font-size: 1.02rem; color: #202433;">
+      Zhenhua Tang is currently a Postdoctoral Fellow at the <strong>Faculty of Science and Technology, University of Macau</strong>, 
+      under the supervision of <strong>Prof. Chi-Man Pun</strong>. He received his Ph.D. from Hefei University of Technology (HFUT) 
+      under Prof. Richang Hong, and holds a B.E. from HFUT (2015) and an M.E. from Shenzhen University (2020). 
+      His research focuses on computer vision and multimedia — including 3D human pose estimation, motion synthesis, AI choreography, and robotic grasp generation. 
+      He has published in top-tier venues such as AAAI, CVPR, ACM MM, TMM, and TCSVT.
+    </p>
+  </div>
 
+  <!-- PUBLICATIONS (完整替换，会议+期刊) -->
+  <div id="publication"></div>
+  <div class="section-card">
+    <h3 class="section-title"><i class="fas fa-book-open me-2"></i>Selected Publications</h3>
     
-  </head>
-
-  <body>
-
-      <div class="masthead">
-        <h3 class="muted"></h3>
-        <div class="navbar navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#bio">Short Bio</a></li>
-                <!--<li><a href="#Download">Download</a></li>-->
-                <li><a href="#Publication">Publication</a></li> 
-	       <li><a href="#Activities">Activities-学术服务</a></li>
-		<li><a href="#Employment">Employment-工作经历</a></li>
-                <li><a href="#Travels">Tang's Travels-旅行</a></li>
-              </ul>
-            </div>
-          </div>
-        </div><!-- /.navbar -->
+    <!-- 会议论文 -->
+    <div class="pub-subsection">
+      <h4><i class="fas fa-users"></i> Conference Papers</h4>
+      
+      <div class="pub-item">
+        <div class="pub-title">SNS-Grasp: Semantic-guided Noise Scaling for Grasp Generation</div>
+        <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yudian Zheng, Yuzhang Zhong, Yanbin Hao, Chi-Men PUN. · <b>AAAI 2026</b></div>
+        <div class="pub-links"></div>
       </div>
-
-      <div class="container">
-	      <br><br>
-		  <div class="bs-docs-grid ">
-	 
-	  	  <div class="media">
-		    <a class="pull-left">
-			    <img src="zhenhuat.jpg" height="100" width="150" class="media-object" >
-			</a>
-			<div class="media-body">			
-			<h4>Zhenhua Tang (唐振华)</h4>
-			<!--<h5>Ph.D student in Computer Science and Technology <a href="./cv.pdf">(CV)</a></h5>-->
-	
-                        <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=5Iop66sAAAAJ" >Google Scholar</a><br>
-
-			Lab for Media Computing <a href="http://data-science.ustc.edu.cn/">(多媒体计算实验室)</a><br>
-			School of Computer and Information <a href="http://sds.ustc.edu.cn/">(计算机与信息学院)</a><br>			
-			Hefei University of Technology<br>
-      <br><br>
-			<i>Email: zhenhuat AT foxmail.com</i>			
-			 
-		 </div></div>
-		 
-		 <a id= "bio"></a>
-		 <hr>
-		 <div class="row">	
-		 <div class="span">
-				<h4>Short Bio</h4>
-       Zhenhua Tang is a Ph.D. student under the supervision of <a href="http://ci.hfut.edu.cn/2018/0819/c6404a168596/page.htm">Prof. Richang Hong</a>  at <a href="http://www.hfut.edu.cn/">Hefei University of Technology (HFUT)</a> in Anhui, China. He holds a B.E. degree from Hefei University of Technology and an M.E. degree from Shenzhen University, which he received in 2015 and 2020, respectively. He is currently undergoing joint training at the Singapore Management University. His current research interests primarily focus on computer vision and multimedia data analysis, specifically in the areas of human pose estimation, motion synthesis, and AI choreography. He has authored papers that have been published in esteemed journals and conferences, including CVPR, TMM, TCSVT, PRL,PRCV, ACML, and more.
-
-
-				
-		 </div>
-		 </div>
-		 <!--	
-		 <a id= "Download"></a>
-		 <hr>
-		 <div class="row">	
-		 <div class="span">
-				<h4>Download</h4>
-				<ul>
-				<li><b><a
-                    href="http://vireo.cs.cityu.edu.hk/vireoweb81"><u>VIREO-WEB81</u></a>
-                    concept detectors, features and detection scores on
-                    NUS-WIDE dataset</b> <br>
-                    We are pleased to release 81 semantic concept detectors
-                    trained on the NUS-WIDE training dataset, and their
-                    detection scores on NUS-WIDE testing dataset. Global and
-                    local features (BoW) are also available.</li> 
-				</ul>
-		 </div>
-		 </div>
-		 -->
-		 <a id= "Publication"></a>
-		 <hr>
-		 <div class="row">	
-		 <div class="span">
-	<h4>Selected Publications</h4>
-	
-	<h5><i>Conference && Journal</i></h5>
-	<ul>
-		
-		<h5><i>2023</i></h5>
-		
-		
-		<li>
-		    <b>3D Human Pose Estimation with Spatio-Temporal Criss-cross Attention</b>
-		    <a target="_blank" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Tang_3D_Human_Pose_Estimation_With_Spatio-Temporal_Criss-Cross_Attention_CVPR_2023_paper.pdf">
-	     	    <img border="0" src="./pdf.bmp" align="top">
-		    </a>
-		    <a target="_blank"href="https://github.com/zhenhuat/STCFormer"> code</a><br>
-                    <i><b>Zhenhua Tang</b></i>, Zhaofan Qiu, Yanbin Hao, Richang Hong, Ting Yao, CVPR, 2023.
-                    <br>
-                    <br>
-                 </li>
-		
-		<li><b>MLP-JCG: Multi-layer Perceptron with Joint-Coordinate Gating for Efficient 3D Human Pose Estimation</b><a target="_blank"
-                    href="https://ieeexplore.ieee.org/document/10029937"><img
-                    border="0" src="./pdf.bmp" align="top"></a><a target="_blank"
-		    href=""> code</a><br>
-                    <i><b>Zhenhua Tang</b></i>, Jia Li*, Yanbin Hao,  Richang Hong*,  TMM, 2023.
-                    <br>
-                    <br>
-                 </li>
-		
-		
-		<li><b>FTCM: Frequency-Temporal Collaborative Module for Efficient 3D Human Pose Estimation in Video</b><a target="_blank"
-                    href=""><img
-                    border="0" src="./pdf.bmp" align="top"></a><a target="_blank"
-		    href=""> code</a><br>
-                    <i><b>Zhenhua Tang</b></i>, Yanbin Hao, Jia Li, Richang Hong*,  TCSVT, 2023.
-                    <br>
-                    <br>
-                 </li>
-		
-		<li><b>RepEPnP: Weakly Supervised 3D Human Pose Estimation with EPnP Algorithm</b><a target="_blank"
-                    href=""><img
-                    border="0" src="./pdf.bmp" align="top"></a><a target="_blank"
-		    href=""> code</a><br>
-                    Huaijing Lai,<i><b>Zhenhua Tang</b></i>, Xiaoyan Zhang*,  IJCNN, 2023.
-                    <br>
-                    <br>
-                 </li>
-		
-		<h5><i>2019 && Before</i></h5>
-		
-		<li><b>3D human pose estimation via human structure-aware fully connected network</b><a target="_blank"
-                    href="https://www.sciencedirect.com/science/article/pii/S016786551830432X"><img
-                    border="0" src="./pdf.bmp" align="top"></a><a target="_blank"
-		    href="https://github.com/haoyanbin918/Group-Contextualization"> code</a><br>
-                    Xiaoyan Zhang*, <i><b>Zhenhua Tang</b></i>, Junhui Hou, Yanbin Hao, Yanbin Hao, PRL, 2019.
-                    <br>
-                    <br>
-                 </li>
-		
-
-		
-		<li><b>An Articulated Structure-Aware Network for 3D Human Pose Estimation</b><a target="_blank"
-                    href="http://proceedings.mlr.press/v101/tang19a.html"><img
-                    border="0" src="./pdf.bmp" align="top"></a><a target="_blank"
-		    href="https://github.com/haoyanbin918/Group-Contextualization"> code</a><br>
-                    <i><b>Zhenhua Tang</b></i>,Xiaoyan Zhang*,  Junhui Hou,  ACML, 2019.
-                    <br>
-                    <br>
-                 </li>
-		
-		<li><b>Pose-Based Composition Improvement for Portrait Photographs</b><a target="_blank"
-                    href="https://ieeexplore.ieee.org/document/8319951"><img
-                    border="0" src="./pdf.bmp" align="top"></a><a target="_blank"
-		    href="https://github.com/haoyanbin918/Group-Contextualization"> code</a><br>
-                    Xiaoyan Zhang, Zhuopeng Li, M Constable, K-L Chan, <i><b>Zhenhua Tang</b></i>, Yanggao Tang, TCSVT, 2019.
-                    <br>
-                    <br>
-                 </li>
-
-	</ul>
-		 </div>
-		 </div>
-
-  <a id= "Activities"></a>
-     <hr>
-     <div class="row">	
-     <div class="span">
-     <h4>Activities</h4>
-	     <li><b>Reviewer of IEEE Transactions on Multimedia(TMM)
-                    <br><br>
-                 </li>
-	     <li><b>Reviewer of IEEE Transactions ON CIRCUITS AND SYSTEMS FOR VIDEO TECHNOLOGY(TCSVT)
-                    <br><br>
-                 </li>
-	     <li><b>Reviewer of IEEE Transactions on Multimedia Computing Communications and Applications(TOMM)
-                    <br><br>
-                 </li>
-	     <li><b>Reviewer of the IEEE Transactions on Computational Social Systems (TCSS)
-                    <br><br>
-                 </li>
-	     <li><b>Reviewer of ACM MULTIMEDIA(MM,2024)
-                    <br><br>
-                 </li>
-	     <li><b>Reviewer of Chinese Conference on Pattern Recognition and Computer Vision(PRCV,2024)
-                    <br><br>
-                 </li>
-	     <li><b>Reviewer of Asian Conference on Computer Vision(ACCV,2022)
-                    <br><br>
-                 </li>
-
+      <div class="pub-item">
+        <div class="pub-title">MotionRefineNet: Fine-Grained Pose Sequence Smoothing and Refinement</div>
+        <div class="pub-meta">Haolun Li, Weihuang Liu, Jiateng Liu, <i><b>Zhenhua Tang</b></i>, Chi-Man Pun, Qiguang Miao, Feng Xu, Hao Gao. · <b>ACM MM 2026</b></div>
+        <div class="pub-links"></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">RAGG: Retrieval-Augmented Grasp Generation Model</div>
+        <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Bin Zhu, Yanbin Hao, Chong-Wah Ngo, Richang Hong. · <b>AAAI 2025</b></div>
+        <div class="pub-links"></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">3D Human Pose Estimation with Spatio-Temporal Criss-cross Attention</div>
+        <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Zhaofan Qiu, Yanbin Hao, Richang Hong, Yaoting. · <b>CVPR 2023</b></div>
+        <div class="pub-links">
+          <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Tang_3D_Human_Pose_Estimation_With_Spatio-Temporal_Criss-Cross_Attention_CVPR_2023_paper.pdf" target="_blank"><i class="fas fa-file-pdf"></i>PDF</a>
+          <a href="https://github.com/zhenhuat/STCFormer" target="_blank"><i class="fab fa-github"></i>Code</a>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">An Articulated Structure-Aware Network for 3D Human Pose Estimation</div>
+        <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Xiaoyan Zhang, Junhui Hou. · <b>ACML 2019</b></div>
+        <div class="pub-links"><a href="http://proceedings.mlr.press/v101/tang19a.html"><i class="fas fa-file-pdf"></i>PDF</a></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">JPA: A Joint-Part Attention for Mitigating Overfocusing on 3D Human Pose Estimation</div>
+        <div class="pub-meta">Dengqing Yang, <i><b>Zhenhua Tang*</b></i>, Jinmeng Wu, Shuo Wang, Lechao Cheng, Yanbin Hao. · <b>PRCV 2024</b> <span class="note-corresponding">(*corresponding author)</span></div>
+        <div class="pub-links"></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">RepEPnP: Weakly Supervised 3D Human Pose Estimation with EPnP Algorithm</div>
+        <div class="pub-meta">Huaijing Lai, <i><b>Zhenhua Tang</b></i>, Xiaoyan Zhang. · <b>IJCNN 2023</b></div>
+        <div class="pub-links"></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Space-View Decoupled 3D Gaussians for Novel-View Synthesis of Mirror Reflections</div>
+        <div class="pub-meta">Zhenwu Wang, Zhuopeng Li, <i><b>Zhenhua Tang</b></i>, Yanbin Hao, Huasen He. · <b>PRICAI 2024</b></div>
+        <div class="pub-links"></div>
+      </div>
     </div>
-     </div>
-			  
-			  
-     <a id= "Employment"></a>
-     <hr>
-     <div class="row">	
-     <div class="span">
-     <h4>Employment</h4>
-	     <li><b>JD Explore Academy, JD Group</b>,Intern on Algorithm Engineer，2022.07-2023.02
-                    <br><br>
-                 </li>
-	     <li><b>Hefei University of Technology</b>, Research Assistant，2020.12-2021.09
-                    <br><br>
-                 </li>
-	     <li><b>Shenzhen University</b>,Research Assistant，2020.07-2020.11
-                    <br><br>
-                 </li>
-	     <li><b>Marketing and User Research Department, Tencent</b>, Online Practice,2018.10-2019.04
-                    <br><br>
-                 </li>
-	     <li><b>Supply Chain Management Department, TPLink</b>, Production Planner, 2015.06-2015.10
-                    <br><br>
-                 </li>
+
+    <!-- 期刊论文 -->
+    <div class="pub-subsection" style="margin-top: 2.2rem;">
+      <h4><i class="fas fa-newspaper"></i> Journal Papers</h4>
+      
+      <div class="pub-item">
+        <div class="pub-title">Probabilistic Generative Approach for Ambiguity-Aware Parameter Extraction</div>
+        <div class="pub-meta">Bolun Zeng, <i><b>Zhenhua Tang</b></i>, Yuanke Zhang, Qingsong Li, Changchun Zhou, Liling Qiu, Yuefeng Chen, Zikun Xiang, Jun Xu, Chao Luo, Guoping Guo. · <b>IEEE TED 2023</b></div>
+        <div class="pub-links"></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">MLP-JCG: Multi-Layer Perceptron with Joint-Coordinate Gating for Efficient 3D Human Pose Estimation</div>
+        <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Jia Li, Yanbin Hao, Richang Hong. · <b>IEEE TMM 2023</b></div>
+        <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/10029937"><i class="fas fa-file-pdf"></i>PDF</a></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">FTCM: Frequency-Temporal Collaborative Module for Efficient 3D Human Pose Estimation in Video</div>
+        <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yanbin Hao, Jia Li, Richang Hong. · <b>IEEE TCSVT 2023</b></div>
+        <div class="pub-links"></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">3D human pose estimation via human structure-aware fully connected network</div>
+        <div class="pub-meta">Xiaoyan Zhang, <i><b>Zhenhua Tang</b></i>, Junhui Hou, Yanbin Hao. · <b>Pattern Recognition Letters (PRL) 2019</b></div>
+        <div class="pub-links"><a href="https://www.sciencedirect.com/science/article/pii/S016786551830432X"><i class="fas fa-file-pdf"></i>PDF</a></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Pose-Based Composition Improvement for Portrait Photographs</div>
+        <div class="pub-meta">Xiaoyan Zhang, Zhuopeng Li, M Constable, K-L Chan, <i><b>Zhenhua Tang</b></i>, Yanggao Tang. · <b>IEEE TCSVT 2018</b></div>
+        <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/8319951"><i class="fas fa-file-pdf"></i>PDF</a></div>
+      </div>
     </div>
-     </div>
+  </div>
 
+  <!-- ACTIVITIES 学术服务 (保留) -->
+  <div id="activities"></div>
+  <div class="section-card">
+    <h3 class="section-title">🤝 Academic Services</h3>
+    <ul class="clean-list">
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · IEEE Transactions on Multimedia (TMM)</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · IEEE TCSVT</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · ACM TOMM</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · IEEE TCSS</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · ACM Multimedia (MM 2024)</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · PRCV 2024</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · ACCV 2022</li>
+    </ul>
+  </div>
 
-			  
-			  
-			  
-			  
-     <a id= "Travels"></a>
-     <hr>
-     <div class="row">  
-     <div class="span">
-        <h4>Hao's Travels, 我的旅途</h4>
-        <ul>
-        <li>He wants to see the world.
-        </li> 
-        </ul>
-     </div>
-     </div>
-     <div class="home_pictures">
-      <div class="scene">
-        <img src="guling.jpg" width="300" height="300" title="我的家乡", alt="我的家乡">
-        <img src="liuzhou.jpg" width="300" height="300" title="柳州", alt="柳州">
-        <img src="fenghuang.jpg" width="300" height="300" title="凤凰古城", alt="凤凰古城">
-	<img src="shenzhen.jpg" width="300" height="300" title="深圳平安大厦", alt="深圳平安大厦">
-        <img src="xichong.jpg" width="300" height="300" title="东西冲穿越", alt="东西冲穿越">
-	<img src="beijing.jpg" width="300" height="300" title="北京环球影城", alt="北京环球影城">
-       <img src="daban.jpg" width="300" height="300" title="稻荷神社", alt="稻荷神社">
-        
-      </div>
-       
-     </div>
+  <!-- EMPLOYMENT (更新博士后经历) -->
+  <div id="employment"></div>
+  <div class="section-card">
+    <h3 class="section-title">💼 Employment & Experience</h3>
+    <ul class="clean-list">
+      <li><span class="list-bullet"></span> <strong>University of Macau</strong> · Postdoctoral Fellow (2025 – present)  <span style="margin-left: 12px; font-size:0.85rem; background:#eef2f8; padding:2px 10px; border-radius:20px;">Supervisor: Prof. Chi-Man Pun</span></li>
+      <li><span class="list-bullet"></span> <strong>JD Explore Academy, JD Group</strong> · Algorithm Engineer Intern (2022.07 – 2023.02)</li>
+      <li><span class="list-bullet"></span> <strong>Hefei University of Technology</strong> · Research Assistant (2020.12 – 2021.09)</li>
+      <li><span class="list-bullet"></span> <strong>Shenzhen University</strong> · Research Assistant (2020.07 – 2020.11)</li>
+      <li><span class="list-bullet"></span> <strong>Tencent (Marketing & User Research)</strong> · Online Practice (2018.10 – 2019.04)</li>
+      <li><span class="list-bullet"></span> <strong>TP-Link (Supply Chain)</strong> · Production Planner (2015.06 – 2015.10)</li>
+    </ul>
+  </div>
 
-		 <hr>
-		  
-      </div></div> <!-- /container -->
-      <div class="foot-fixed-bottom">
-	  	      <p align = "right"><a href= "http://twitter.github.com/bootstrap/"><u><font color="#000000">Proudly powered by Bootstrap</font></u></a></p>
-      </div>
-     
+  <!-- TRAVELS 相册 -->
+  <div id="travels"></div>
+  <div class="section-card">
+    <h3 class="section-title">🌏 Tang's Travels · 旅途印记</h3>
+    <p style="margin-bottom: 12px; color:#3a465e;"><i>“He wants to see the world.”</i></p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="guling.jpg" alt="我的家乡"></div>
+      <div class="gallery-item"><img src="liuzhou.jpg" alt="柳州"></div>
+      <div class="gallery-item"><img src="fenghuang.jpg" alt="凤凰古城"></div>
+      <div class="gallery-item"><img src="shenzhen.jpg" alt="深圳平安大厦"></div>
+      <div class="gallery-item"><img src="xichong.jpg" alt="东西冲穿越"></div>
+      <div class="gallery-item"><img src="beijing.jpg" alt="北京环球影城"></div>
+      <div class="gallery-item"><img src="daban.jpg" alt="稻荷神社"></div>
+    </div>
+  </div>
 
+  <div class="page-footer">
+    <span>Zhenhua Tang ·  </span>
+    <a href="#"><i class="fas fa-arrow-up me-1"></i>Back to top</a> · 
+    <span>Proudly built with Bootstrap & custom style</span>
+  </div>
+</main>
 
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    const sections = document.querySelectorAll('div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href').substring(1);
+        if (href === current) link.classList.add('active');
+      });
+    }
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  })();
+</script>
+</body>
 </html>
