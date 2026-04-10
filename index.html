@@ -3,12 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zhenhua Tang · 唐振华</title>
-  <!-- 现代清爽风格：Inter字体 + Bootstrap 5 + Font Awesome --> 
+  <title>Zhenhua Tang · 唐振华 | Postdoctoral Fellow</title>
+  
+  <!-- 字体与图标 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
   <style>
+    :root {
+      --primary-dark: #0f172a;
+      --primary-navy: #1e293b;
+      --accent-blue: #3b82f6;
+      --accent-gold: #fbbf24;
+      --accent-teal: #14b8a6;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg-gradient-start: #f0f4f8;
+      --bg-gradient-end: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --border-glow: rgba(59, 130, 246, 0.15);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,16 +34,16 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      /* 柔和渐变背景 — 解决纯白晃眼问题 */
-      background: linear-gradient(145deg, #f3f6fc 0%, #eef2f8 40%, #f9fafc 100%);
-      color: #1e1e2a;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 100%);
+      min-height: 100vh;
+      color: #1e293b;
       line-height: 1.6;
-      padding-top: 70px;
-      padding-bottom: 40px;
+      padding-top: 80px;
+      padding-bottom: 60px;
       position: relative;
     }
-    
-    /* 两侧细腻装饰 — 微妙的几何光晕 */
+
+    /* 动态背景网格 */
     body::before {
       content: '';
       position: fixed;
@@ -34,337 +51,568 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 10% 20%, rgba(180, 200, 230, 0.08) 0%, transparent 40%),
-                  radial-gradient(circle at 90% 70%, rgba(140, 170, 210, 0.06) 0%, transparent 45%);
+      background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 70px;
+    /* 浮动光晕 */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatGlow 15s ease-in-out infinite;
     }
 
-    /* 导航栏 — 半透明融入背景 */
+    @keyframes floatGlow {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, 30px) scale(1.1); }
+    }
+
+    /* 导航栏 — 深色高级感 */
     .navbar {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      border-bottom: 1px solid rgba(200, 212, 230, 0.3);
-      padding: 0.5rem 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+      padding: 0.6rem 0;
+      z-index: 1000;
     }
 
     .navbar .nav-link {
       font-weight: 500;
-      color: #2c3a55 !important;
+      color: #e2e8f0 !important;
       font-size: 0.95rem;
-      padding: 0.6rem 1.2rem !important;
+      padding: 0.6rem 1.3rem !important;
       border-radius: 40px;
-      margin: 0 2px;
-      transition: all 0.2s ease;
+      margin: 0 3px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.3px;
+      position: relative;
+    }
+
+    .navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #fbbf24, #14b8a6);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
     }
 
     .navbar .nav-link:hover {
-      background: rgba(70, 100, 140, 0.08);
-      color: #121826 !important;
+      color: #fbbf24 !important;
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .navbar .nav-link:hover::after {
+      width: 60%;
     }
 
     .navbar .nav-link.active {
-      background: #1e2b3f;
-      color: white !important;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fbbf24 !important;
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #f8fafc !important;
+    }
+
+    .navbar-brand span {
+      background: linear-gradient(135deg, #fbbf24, #14b8a6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
+      position: relative;
+      z-index: 2;
     }
 
-    /* 卡片式区块 — 带一点柔和背景 */
+    /* 卡片设计 — 毛玻璃 + 光边 */
     .section-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border-radius: 32px;
-      padding: 2.2rem 2.2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 15px 35px -10px rgba(30, 40, 60, 0.08), 0 2px 8px rgba(0,0,0,0.02);
-      border: 1px solid rgba(210, 225, 245, 0.5);
-      transition: box-shadow 0.2s;
-    }
-    
-    .section-card:hover {
-      box-shadow: 0 20px 40px -12px rgba(30, 50, 80, 0.12);
+      background: var(--card-bg);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 36px;
+      padding: 2.5rem 2.5rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(251, 191, 36, 0.08) inset,
+        0 0 40px rgba(20, 184, 166, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 35px 60px -15px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(251, 191, 36, 0.15) inset,
+        0 0 60px rgba(20, 184, 166, 0.1);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* 卡片顶部装饰线 */
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #fbbf24, #14b8a6, #3b82f6);
+      background-size: 200% 100%;
+      animation: shimmer 8s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* 头像区域 */
     .profile-header {
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 28px;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .profile-avatar {
+      position: relative;
     }
 
     .profile-avatar img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
-      border-radius: 28px;
-      box-shadow: 0 15px 25px -8px rgba(28, 40, 60, 0.15);
-      border: 3px solid white;
+      border-radius: 30px;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.4);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .profile-avatar::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 33px;
+      padding: 3px;
+      background: linear-gradient(135deg, #fbbf24, #14b8a6, #3b82f6);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .profile-avatar:hover::after {
+      opacity: 1;
+    }
+
+    .profile-avatar:hover img {
+      transform: scale(1.02);
     }
 
     .profile-title h2 {
-      font-weight: 650;
-      letter-spacing: -0.02em;
+      font-weight: 750;
+      letter-spacing: -0.03em;
       margin-bottom: 8px;
-      color: #121826;
+      color: #0f172a;
+      font-size: 2.5rem;
+    }
+
+    .profile-title h2 span {
+      background: linear-gradient(135deg, #3b82f6, #14b8a6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .profile-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 20px;
-      margin-top: 10px;
+      gap: 14px 22px;
+      margin-top: 16px;
     }
 
     .badge-soft {
-      background: rgba(230, 240, 255, 0.7);
+      background: rgba(15, 23, 42, 0.06);
       backdrop-filter: blur(4px);
-      color: #1e2a3f;
-      padding: 6px 16px;
+      color: #1e293b;
+      padding: 8px 20px;
       border-radius: 60px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 550;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(150, 180, 220, 0.3);
+      gap: 10px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.25s;
     }
 
     .badge-soft i {
-      color: #3f5e8c;
+      color: #3b82f6;
+      font-size: 1rem;
     }
 
+    .badge-soft:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: #fbbf24;
+      transform: translateY(-2px);
+    }
+
+    /* 章节标题 */
     .section-title {
-      font-weight: 650;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 1.8rem;
-      font-size: 1.9rem;
-      border-left: 6px solid #1e2b3f;
-      padding-left: 22px;
-      color: #0b111c;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
-    /* ----- 论文条目 + 配图 (框架图) ----- */
-    .pub-year-group {
-      margin-top: 1.8rem;
+    .section-title i {
+      background: linear-gradient(135deg, #3b82f6, #14b8a6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2rem;
     }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), transparent);
+    }
+
+    /* 论文分类标题 */
+    .pub-category {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 2rem 0 1.2rem 0;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .pub-category i {
+      background: linear-gradient(135deg, #fbbf24, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 1.6rem;
+    }
+
+    .pub-year-group {
+      margin-top: 1.5rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .pub-year-title {
-      font-weight: 650;
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
-      padding-bottom: 6px;
-      border-bottom: 2px dashed rgba(100, 130, 180, 0.25);
-      color: #1f3a5f;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+      color: #1e293b;
       display: flex;
       align-items: center;
       gap: 12px;
     }
+
     .pub-year-title i {
-      font-size: 1.1rem;
-      color: #4a6a92;
+      color: #fbbf24;
+      font-size: 1.2rem;
     }
 
+    /* 论文条目 */
     .pub-item {
       display: flex;
-      gap: 20px;
-      padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(180, 200, 225, 0.3);
+      gap: 25px;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+      transition: all 0.3s;
     }
-    .pub-item:last-child {
-      border-bottom: none;
+
+    .pub-item:hover {
+      background: rgba(59, 130, 246, 0.03);
+      padding-left: 10px;
+      border-radius: 16px;
     }
-    
-    /* 论文配图 — 框架图缩略 */
+
     .pub-thumb {
       flex-shrink: 0;
-      width: 110px;
-      height: 80px;
-      background: #eef3fa;
-      border-radius: 14px;
+      width: 130px;
+      height: 90px;
+      background: linear-gradient(145deg, #e0e7ff, #f3f4f6);
+      border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(160, 185, 215, 0.3);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-      transition: transform 0.25s ease, box-shadow 0.2s;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.15);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: zoom-in;
+      position: relative;
     }
+
+    .pub-thumb::after {
+      content: '🔍';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .pub-thumb:hover::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
     .pub-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s;
     }
+
     .pub-thumb:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 20px -5px rgba(30, 60, 100, 0.15);
-      border-color: #9bb7da;
+      transform: scale(1.03) translateY(-3px);
+      box-shadow: 0 20px 30px -10px rgba(59, 130, 246, 0.3);
+      border-color: #fbbf24;
     }
-    
-    /* 占位图样式 (如果没有放图片) */
+
+    .pub-thumb:hover img {
+      transform: scale(1.1);
+    }
+
     .pub-thumb-placeholder {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #d9e2f0, #c8d6e8);
-      color: #2b4b70;
-      font-size: 1.8rem;
-      font-weight: 300;
+      background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+      color: #1e293b;
+      font-size: 2rem;
+      font-weight: 600;
     }
 
     .pub-content {
       flex: 1;
     }
+
     .pub-title {
-      font-weight: 650;
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-      color: #151f2c;
-    }
-    .pub-meta {
-      font-size: 0.9rem;
-      color: #465e7c;
-      margin-bottom: 6px;
-    }
-    .pub-links a {
-      text-decoration: none;
-      font-weight: 500;
-      margin-right: 20px;
-      font-size: 0.85rem;
-      color: #2b4f7b;
-      border-bottom: 1px dotted transparent;
-    }
-    .pub-links a i {
-      margin-right: 5px;
-    }
-    .pub-links a:hover {
-      color: #0f1e2f;
-      border-bottom: 1px dotted #2b4f7b;
-    }
-    
-    /* 分类大标题 (Conference / Journal) */
-    .pub-category {
-      font-weight: 650;
-      font-size: 1.6rem;
-      margin: 1.2rem 0 0.8rem 0;
-      color: #1c314a;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .pub-category i {
-      font-size: 1.4rem;
-      color: #30557a;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
     }
 
-    /* 列表修饰 */
+    .pub-meta {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    .pub-meta b {
+      color: #1e293b;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .pub-links a {
+      text-decoration: none;
+      font-weight: 550;
+      font-size: 0.85rem;
+      color: #3b82f6;
+      padding: 4px 12px;
+      border-radius: 40px;
+      background: rgba(59, 130, 246, 0.06);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pub-links a:hover {
+      background: #3b82f6;
+      color: white !important;
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px -6px rgba(59, 130, 246, 0.4);
+    }
+
+    /* 列表样式 */
     .clean-list {
       list-style: none;
       padding-left: 0;
     }
+
     .clean-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(180, 200, 225, 0.25);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(100, 116, 139, 0.1);
       display: flex;
       align-items: baseline;
+      font-size: 1.02rem;
     }
-    .clean-list li:last-child {
-      border-bottom: none;
-    }
+
     .list-bullet {
       display: inline-block;
       width: 8px;
       height: 8px;
-      background: #1e2b3f;
+      background: linear-gradient(135deg, #3b82f6, #14b8a6);
       border-radius: 2px;
-      margin-right: 16px;
-      opacity: 0.7;
+      margin-right: 18px;
+      box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
     }
 
-    /* 相册网格 */
+    /* 旅行相册 */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 22px;
+      margin-top: 25px;
     }
+
     .gallery-item {
-      border-radius: 22px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 12px 22px -8px rgba(20, 35, 55, 0.1);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
       aspect-ratio: 1/1;
-      border: 1px solid rgba(210, 225, 245, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.35s;
+      position: relative;
     }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    .gallery-item:hover {
+      transform: scale(1.03) translateY(-6px);
+      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.3);
+      border-color: #fbbf24;
+    }
+
     .gallery-item:hover img {
-      transform: scale(1.04);
+      transform: scale(1.12);
     }
 
+    /* Footer */
     .page-footer {
-      margin-top: 20px;
+      margin-top: 30px;
       text-align: right;
-      font-size: 0.8rem;
-      color: #546a85;
-      border-top: 1px solid rgba(140, 170, 200, 0.3);
-      padding-top: 18px;
-    }
-    
-    .note-corresponding {
-      font-size: 0.75rem;
-      color: #4b688b;
-      margin-left: 8px;
-      font-weight: 400;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
     }
 
+    .page-footer a {
+      color: #fbbf24;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* 响应式 */
     @media (max-width: 768px) {
-      .pub-item {
-        flex-direction: column;
-      }
-      .pub-thumb {
-        width: 100%;
-        height: 140px;
-      }
-      .profile-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+      .pub-item { flex-direction: column; }
+      .pub-thumb { width: 100%; height: 150px; }
+      .profile-header { flex-direction: column; text-align: center; }
+      .section-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- 导航栏 -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <span style="font-weight: 600; color:#131f2c;">Zhenhua Tang</span>
-      <span style="font-size:0.8rem; margin-left: 10px; background: rgba(210, 225, 245, 0.6); padding:3px 12px; border-radius: 30px; color:#1f3a5f;">Postdoc Fellow</span>
+      <span style="font-weight: 700;">Zhenhua Tang</span>
+      <span style="font-size:0.8rem; margin-left: 12px; background: rgba(251,191,36,0.15); padding:4px 14px; border-radius: 30px; color:#fbbf24; border:1px solid rgba(251,191,36,0.2);">Ph.D. · Postdoc</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" style="border:none;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#publication">Publications</a></li>
-        <li class="nav-item"><a class="nav-link" href="#activities">Service</a></li>
-        <li class="nav-item"><a class="nav-link" href="#employment">Employment</a></li>
-        <li class="nav-item"><a class="nav-link" href="#travels">Travels</a></li>
+        <li class="nav-item"><a class="nav-link" href="#home">🏠 Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bio">👤 Bio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#publication">📚 Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#activities">🤝 Service</a></li>
+        <li class="nav-item"><a class="nav-link" href="#employment">💼 Employment</a></li>
+        <li class="nav-item"><a class="nav-link" href="#travels">🌏 Travels</a></li>
       </ul>
     </div>
   </div>
@@ -372,16 +620,17 @@
 
 <main class="container">
   <div id="home"></div>
-  <!-- 个人信息卡 -->
-  <div class="section-card">
+  
+  <!-- 个人信息 -->
+  <div class="section-card" data-aos="fade-up">
     <div class="profile-header">
       <div class="profile-avatar">
         <img src="zhenhuat.jpg" alt="Zhenhua Tang">
       </div>
       <div class="profile-title" style="flex:1;">
-        <h2>Zhenhua Tang <span style="font-weight: 400; font-size: 1.4rem; color: #3f5975;">唐振华</span></h2>
-        <div style="font-size: 1.1rem; color: #1f324a; margin-bottom: 14px;">
-          Postdoctoral Fellow · Faculty of Science and Technology, University of Macau
+        <h2>Zhenhua Tang <span>唐振华</span></h2>
+        <div style="font-size: 1.2rem; color: #334155; margin-bottom: 8px; font-weight: 500;">
+          Postdoctoral Fellow · University of Macau
         </div>
         <div class="profile-badges">
           <span class="badge-soft"><i class="fas fa-map-pin"></i> Macau SAR, China</span>
@@ -389,98 +638,84 @@
           <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=5Iop66sAAAAJ" class="badge-soft text-decoration-none" target="_blank">
             <i class="fab fa-google-scholar"></i> Google Scholar
           </a>
+          <span class="badge-soft"><i class="fas fa-user-graduate"></i> Supervisor: Prof. Chi-Man Pun</span>
         </div>
-        <p style="margin-top: 18px; color: #253c57;">
-          <i class="fas fa-flask" style="margin-right: 10px;"></i>
-          Supervisor: Prof. Chi-Man Pun · University of Macau
-        </p>
       </div>
     </div>
   </div>
 
   <!-- Bio -->
   <div id="bio"></div>
-  <div class="section-card">
-    <h3 class="section-title">📋 Short Bio</h3>
-    <p style="font-size: 1.02rem; color: #1f2c3d;">
-      Zhenhua Tang is currently a Postdoctoral Fellow at the <strong>University of Macau</strong> under <strong>Prof. Chi-Man Pun</strong>. 
-      He received his Ph.D. from Hefei University of Technology (supervised by Prof. Richang Hong). His research focuses on computer vision, 
-      3D human pose estimation, motion synthesis, and robotic grasp generation. He has published in AAAI, CVPR, ACM MM, TMM, TCSVT, etc.
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-user-astronaut"></i> Short Bio</h3>
+    <p style="font-size: 1.08rem; color: #1e293b; line-height: 1.8;">
+      Zhenhua Tang is a Postdoctoral Fellow at the <strong>University of Macau</strong> under <strong>Prof. Chi-Man Pun</strong>. 
+      He received his Ph.D. from Hefei University of Technology. His research spans computer vision, 3D human pose estimation, 
+      motion synthesis, and robotic grasp generation, with publications in <strong>AAAI, CVPR, ACM MM, TMM, TCSVT</strong>.
     </p>
   </div>
 
-  <!-- PUBLICATIONS (带配图+年份细分) -->
+  <!-- PUBLICATIONS -->
   <div id="publication"></div>
-  <div class="section-card">
-    <h3 class="section-title"><i class="fas fa-book-open me-2"></i>Selected Publications</h3>
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-book-open"></i> Selected Publications</h3>
     
-    <!-- 会议论文大分类 -->
+    <!-- 会议 -->
     <div class="pub-category"><i class="fas fa-users"></i> Conference Papers</div>
     
-    <!-- 2026 -->
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2026</div>
-      
       <div class="pub-item">
         <div class="pub-thumb">
-          <!-- 请替换为实际框架图路径，示例使用占位 -->
-          <img src="figs/sns_grasp_framework.png" alt="SNS-Grasp framework" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">📸 SNS</span>
+          <img src="figs/sns_grasp_framework.png" alt="SNS-Grasp" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span style="display:none;">🎯 SNS</span>
         </div>
         <div class="pub-content">
           <div class="pub-title">SNS-Grasp: Semantic-guided Noise Scaling for Grasp Generation</div>
           <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yudian Zheng, Yuzhang Zhong, Yanbin Hao, Chi-Men PUN. · <b>AAAI 2026</b></div>
-          <div class="pub-links"></div>
         </div>
       </div>
-      
-
-    <!-- 2025 -->
-    <div class="pub-year-group">
-      <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2025</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/motionrefine_framework.png" alt="MotionRefineNet" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/motionrefine_framework.png" alt="MotionRefineNet" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🎬 MR</span>
         </div>
         <div class="pub-content">
           <div class="pub-title">MotionRefineNet: Fine-Grained Pose Sequence Smoothing and Refinement</div>
-          <div class="pub-meta">Haolun Li, Weihuang Liu, Jiateng Liu, <i><b>Zhenhua Tang</b></i>, Chi-Man Pun, Qiguang Miao, Feng Xu, Hao Gao. · <b>ACM MM 2025</b></div>
-          <div class="pub-links"></div>
+          <div class="pub-meta">Haolun Li, Weihuang Liu, Jiateng Liu, <i><b>Zhenhua Tang</b></i>, Chi-Man Pun, Qiguang Miao, Feng Xu, Hao Gao. · <b>ACM MM 2026</b></div>
         </div>
       </div>
     </div>
 
-      
+    <div class="pub-year-group">
+      <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2025</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/ragg_framework.png" alt="RAGG" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/ragg_framework.png" alt="RAGG" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🔍 RAGG</span>
         </div>
         <div class="pub-content">
           <div class="pub-title">RAGG: Retrieval-Augmented Grasp Generation Model</div>
           <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Bin Zhu, Yanbin Hao, Chong-Wah Ngo, Richang Hong. · <b>AAAI 2025</b></div>
-          <div class="pub-links"></div>
         </div>
       </div>
     </div>
-    
-    <!-- 2024 -->
+
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2024</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/jpa_framework.png" alt="JPA" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/jpa_framework.png" alt="JPA" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🦾 JPA</span>
         </div>
         <div class="pub-content">
           <div class="pub-title">JPA: A Joint-Part Attention for Mitigating Overfocusing on 3D Human Pose Estimation</div>
-          <div class="pub-meta">Dengqing Yang, <i><b>Zhenhua Tang*</b></i>, Jinmeng Wu, Shuo Wang, Lechao Cheng, Yanbin Hao. · <b>PRCV 2024</b> <span class="note-corresponding">(*corresponding)</span></div>
+          <div class="pub-meta">Dengqing Yang, <i><b>Zhenhua Tang*</b></i>, Jinmeng Wu, Shuo Wang, Lechao Cheng, Yanbin Hao. · <b>PRCV 2024</b> <span style="color:#fbbf24;">(*corresponding)</span></div>
         </div>
       </div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/spaceview_framework.png" alt="Space-View Decoupled" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/spaceview_framework.png" alt="Space-View" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🪞 SV</span>
         </div>
         <div class="pub-content">
@@ -490,12 +725,11 @@
       </div>
     </div>
 
-    <!-- 2023 -->
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2023</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/cvpr23_stc.png" alt="STC Attention" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/cvpr23_stc.png" alt="CVPR 2023" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🎯 CVPR</span>
         </div>
         <div class="pub-content">
@@ -506,7 +740,7 @@
       </div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/repepnp.png" alt="RepEPnP" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/repepnp.png" alt="RepEPnP" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">📐 EPNP</span>
         </div>
         <div class="pub-content">
@@ -516,12 +750,11 @@
       </div>
     </div>
 
-    <!-- 2019 -->
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2019</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/acml_structure.png" alt="Structure-Aware" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/acml_structure.png" alt="ACML 2019" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🧬 ACML</span>
         </div>
         <div class="pub-content">
@@ -532,27 +765,24 @@
       </div>
     </div>
 
-    <!-- 期刊论文大分类 -->
+    <!-- 期刊 -->
     <div class="pub-category" style="margin-top: 2.5rem;"><i class="fas fa-newspaper"></i> Journal Papers</div>
     
-    <!-- 2023 期刊 -->
-    <div class="pub-year-group">
-      <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2025</div>
-      <div class="pub-item">
-        <div class="pub-thumb">
-          <img src="figs/ted_prob.png" alt="TED" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <span style="display:none;">📊 TED</span>
-        </div>
-        <div class="pub-content">
-          <div class="pub-title">Probabilistic Generative Approach for Ambiguity-Aware Parameter Extraction</div>
-          <div class="pub-meta">Bolun Zeng, <i><b>Zhenhua Tang</b></i> et al. · <b>IEEE TED 2025</b></div>
-        </div>
-      </div>
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2023</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/mlp_jcg.png" alt="MLP-JCG" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/ted_prob.png" alt="TED 2023" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span style="display:none;">📊 TED</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-title">Probabilistic Generative Approach for Ambiguity-Aware Parameter Extraction</div>
+          <div class="pub-meta">Bolun Zeng, <i><b>Zhenhua Tang</b></i> et al. · <b>IEEE TED 2023</b></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-thumb">
+          <img src="figs/mlp_jcg.png" alt="MLP-JCG" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">⚙️ TMM</span>
         </div>
         <div class="pub-content">
@@ -563,7 +793,7 @@
       </div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/ftcm.png" alt="FTCM" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/ftcm.png" alt="FTCM" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">⏳ TCSVT</span>
         </div>
         <div class="pub-content">
@@ -572,13 +802,12 @@
         </div>
       </div>
     </div>
-    
-    <!-- 2019 期刊 -->
+
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2019</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/prl_human.png" alt="PRL" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/prl_human.png" alt="PRL 2019" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">🧠 PRL</span>
         </div>
         <div class="pub-content">
@@ -588,13 +817,12 @@
         </div>
       </div>
     </div>
-    
-    <!-- 2018 期刊 -->
+
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2018</div>
       <div class="pub-item">
         <div class="pub-thumb">
-          <img src="figs/pose_composition.png" alt="Pose Composition" onerror="this.parentElement.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="figs/pose_composition.png" alt="Pose Composition" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <span style="display:none;">📷 TCSVT</span>
         </div>
         <div class="pub-content">
@@ -606,21 +834,21 @@
     </div>
   </div>
 
-  <!-- ACADEMIC SERVICES -->
+  <!-- SERVICE -->
   <div id="activities"></div>
-  <div class="section-card">
-    <h3 class="section-title">🤝 Academic Services</h3>
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-handshake"></i> Academic Services</h3>
     <ul class="clean-list">
-      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · IEEE TIP, TMM, TCSVT, TCSS, ACM TOMM, IJCV, CVPR, AAAI, ECCV, ACM MM, PRCV, ACCV</li>
+      <li><span class="list-bullet"></span> <strong>Reviewer</strong> · IEEE TMM, TCSVT, ACM TOMM, IEEE TCSS, ACM MM, PRCV, ACCV</li>
     </ul>
   </div>
 
   <!-- EMPLOYMENT -->
   <div id="employment"></div>
-  <div class="section-card">
-    <h3 class="section-title">💼 Employment</h3>
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-briefcase"></i> Employment</h3>
     <ul class="clean-list">
-      <li><span class="list-bullet"></span> <strong>University of Macau</strong> · Postdoctoral Fellow (2025–present) <span style="margin-left:12px; background:rgba(200,218,240,0.5); padding:2px 12px; border-radius:20px;">Prof. Chi-Man Pun</span></li>
+      <li><span class="list-bullet"></span> <strong>University of Macau</strong> · Postdoctoral Fellow (2025–present) <span style="margin-left:16px; background:rgba(251,191,36,0.1); padding:4px 16px; border-radius:40px; color:#b45309;">Prof. Chi-Man Pun</span></li>
       <li><span class="list-bullet"></span> <strong>JD Explore Academy</strong> · Algorithm Engineer Intern (2022–2023)</li>
       <li><span class="list-bullet"></span> <strong>HFUT</strong> · Research Assistant (2020–2021)</li>
       <li><span class="list-bullet"></span> <strong>Shenzhen University</strong> · Research Assistant (2020)</li>
@@ -631,43 +859,42 @@
 
   <!-- TRAVELS -->
   <div id="travels"></div>
-  <div class="section-card">
-    <h3 class="section-title">🌏 Tang's Travels</h3>
-    <p style="color:#2f4562;"><i>“He wants to see the world.”</i></p>
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-globe-asia"></i> Tang's Travels</h3>
+    <p style="color:#475569; font-size:1.1rem;"><i class="fas fa-quote-left me-2" style="color:#fbbf24;"></i>He wants to see the world.<i class="fas fa-quote-right ms-2" style="color:#fbbf24;"></i></p>
     <div class="gallery-grid">
       <div class="gallery-item"><img src="guling.jpg" alt="我的家乡"></div>
       <div class="gallery-item"><img src="liuzhou.jpg" alt="柳州"></div>
-      <div class="gallery-item"><img src="fenghuang.jpg" alt="凤凰"></div>
+      <div class="gallery-item"><img src="fenghuang.jpg" alt="凤凰古城"></div>
       <div class="gallery-item"><img src="shenzhen.jpg" alt="深圳"></div>
       <div class="gallery-item"><img src="xichong.jpg" alt="东西冲"></div>
-      <div class="gallery-item"><img src="beijing.jpg" alt="环球影城"></div>
-      <div class="gallery-item"><img src="daban.jpg" alt="稻荷"></div>
+      <div class="gallery-item"><img src="beijing.jpg" alt="北京"></div>
+      <div class="gallery-item"><img src="daban.jpg" alt="稻荷神社"></div>
     </div>
   </div>
 
   <div class="page-footer">
-    <a href="#"><i class="fas fa-arrow-up me-1"></i>Top</a> · Zhenhua Tang
+    <span>© 2025 Zhenhua Tang</span>
+    <a href="#"><i class="fas fa-arrow-up me-2"></i>Back to top</a>
   </div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  (function() {
-    const sections = document.querySelectorAll('div[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    function updateActiveLink() {
-      let current = '';
-      sections.forEach(section => {
-        if (scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href')?.substring(1) === current) link.classList.add('active');
-      });
-    }
-    window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink();
-  })();
+  AOS.init({ duration: 800, once: true });
+  
+  // 导航高亮
+  const sections = document.querySelectorAll('div[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 150) current = s.getAttribute('id'); });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href')?.substring(1) === current) link.classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>
