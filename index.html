@@ -59,7 +59,6 @@
       z-index: 0;
     }
 
-    /* 浮动光晕 */
     body::after {
       content: '';
       position: fixed;
@@ -79,7 +78,6 @@
       50% { transform: translate(-30px, 30px) scale(1.1); }
     }
 
-    /* 导航栏 — 深色高级感 */
     .navbar {
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(20px) saturate(180%);
@@ -150,7 +148,6 @@
       z-index: 2;
     }
 
-    /* 卡片设计 — 毛玻璃 + 光边 */
     .section-card {
       background: var(--card-bg);
       backdrop-filter: blur(16px) saturate(180%);
@@ -177,7 +174,6 @@
       background: rgba(255, 255, 255, 0.8);
     }
 
-    /* 卡片顶部装饰线 */
     .section-card::before {
       content: '';
       position: absolute;
@@ -195,7 +191,6 @@
       100% { background-position: 200% 0; }
     }
 
-    /* 头像区域 */
     .profile-header {
       display: flex;
       flex-wrap: wrap;
@@ -288,7 +283,6 @@
       transform: translateY(-2px);
     }
 
-    /* 章节标题 */
     .section-title {
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -315,7 +309,6 @@
       background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), transparent);
     }
 
-    /* 论文分类标题 */
     .pub-category {
       font-weight: 700;
       font-size: 1.8rem;
@@ -361,7 +354,6 @@
       font-size: 1.2rem;
     }
 
-    /* 论文条目 */
     .pub-item {
       display: flex;
       gap: 25px;
@@ -494,7 +486,6 @@
       box-shadow: 0 8px 16px -6px rgba(59, 130, 246, 0.4);
     }
 
-    /* 列表样式 */
     .clean-list {
       list-style: none;
       padding-left: 0;
@@ -518,7 +509,6 @@
       box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
     }
 
-    /* 旅行相册 */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -567,7 +557,6 @@
       transform: scale(1.12);
     }
 
-    /* Footer */
     .page-footer {
       margin-top: 30px;
       text-align: right;
@@ -585,7 +574,6 @@
       font-weight: 500;
     }
 
-    /* 响应式 */
     @media (max-width: 768px) {
       .pub-item { flex-direction: column; }
       .pub-thumb { width: 100%; height: 150px; }
@@ -609,9 +597,10 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#home">🏠 Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#bio">👤 Bio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">🎓 Education</a></li>
         <li class="nav-item"><a class="nav-link" href="#publication">📚 Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#awards">🏅 Awards</a></li>
         <li class="nav-item"><a class="nav-link" href="#activities">🤝 Service</a></li>
-        <li class="nav-item"><a class="nav-link" href="#employment">💼 Employment</a></li>
         <li class="nav-item"><a class="nav-link" href="#travels">🌏 Travels</a></li>
       </ul>
     </div>
@@ -654,11 +643,24 @@
       During 2023–2024, he was a visiting joint-training Ph.D. student at <strong>Singapore Management University</strong> 
       under the supervision of <strong>Prof. Chong-Wah Ngo</strong>. 
       His research focuses on computer vision, 3D human pose estimation, motion synthesis, and robotic grasp generation. 
-      He has published in top-tier venues including <strong>AAAI, CVPR, ACM MM, TMM, TCSVT</strong>, etc.
+      He has published in top-tier venues including <strong>ICML, AAAI, CVPR, ACM MM, TMM, TCSVT</strong>, etc.
     </p>
   </div>
 
-  <!-- PUBLICATIONS -->
+  <!-- EDUCATION (新增) -->
+  <div id="education"></div>
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+    <ul class="clean-list">
+      <li><span class="list-bullet"></span> <strong>University of Macau</strong> · Postdoctoral Fellow (2025 – present) <span style="margin-left:16px; background:rgba(59,130,246,0.08); padding:4px 16px; border-radius:40px; color:#1e4a8a;">Prof. Chi-Man Pun</span></li>
+      <li><span class="list-bullet"></span> <strong>Hefei University of Technology</strong> · Ph.D. in Computer Science (2019 – 2024) <span style="margin-left:16px; background:rgba(59,130,246,0.08); padding:4px 16px; border-radius:40px; color:#1e4a8a;">Prof. Richang Hong</span></li>
+      <li><span class="list-bullet"></span> <strong>Singapore Management University</strong> · Joint-training Ph.D. (2023 – 2024) <span style="margin-left:16px; background:rgba(59,130,246,0.08); padding:4px 16px; border-radius:40px; color:#1e4a8a;">Prof. Chong-Wah Ngo</span></li>
+      <li><span class="list-bullet"></span> <strong>Shenzhen University</strong> · M.Eng. in Computer Technology (2016 – 2019) <span style="margin-left:16px; background:rgba(59,130,246,0.08); padding:4px 16px; border-radius:40px; color:#1e4a8a;">Prof. Xiaoyan Zhang</span></li>
+      <li><span class="list-bullet"></span> <strong>Hefei University of Technology</strong> · B.Sc. in Mathematics & Applied Mathematics (2012 – 2016)</li>
+    </ul>
+  </div>
+
+  <!-- PUBLICATIONS (新增ICML 2026) -->
   <div id="publication"></div>
   <div class="section-card" data-aos="fade-up">
     <h3 class="section-title"><i class="fas fa-book-open"></i> Selected Publications</h3>
@@ -668,6 +670,18 @@
     
     <div class="pub-year-group">
       <div class="pub-year-title"><i class="far fa-calendar-alt"></i> 2026</div>
+      <!-- ICML 2026 新增 -->
+      <div class="pub-item">
+        <div class="pub-thumb">
+          <img src="figs/glimpse_icml.png" alt="Glimpse" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span style="display:none;">✨ Glimpse</span>
+        </div>
+        <div class="pub-content">
+          <div class="pub-title">Glimpse: Geometry Learning of Multi-scale Structural Priors for 3D Pose Estimation</div>
+          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Jihua Peng, Yanbin Hao, Qiguang Miao, Chi-Man Pun. · <b>ICML 2026</b> <span style="background:#fbbf24; color:#0f172a; padding:0 8px; border-radius:12px; font-weight:600;">CCF-A</span></div>
+          <div class="pub-links"><a href="#"><i class="fas fa-file-pdf"></i>PDF</a><a href="#"><i class="fab fa-github"></i>Code</a></div>
+        </div>
+      </div>
       <div class="pub-item">
         <div class="pub-thumb">
           <img src="figs/sns_grasp_framework.png" alt="SNS-Grasp" onerror="this.classList.add('pub-thumb-placeholder'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -675,7 +689,7 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">SNS-Grasp: Semantic-guided Noise Scaling for Grasp Generation</div>
-          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yudian Zheng, Yuzhang Zhong, Yanbin Hao, Chi-Man Pun. · <b>AAAI 2026</b></div>
+          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yudian Zheng, Yuzhang Zhong, Yanbin Hao, Chi-Man Pun. · <b>AAAI 2026</b> <span style="background:#fbbf24; color:#0f172a; padding:0 8px; border-radius:12px; font-weight:600;">CCF-A</span></div>
         </div>
       </div>
       <div class="pub-item">
@@ -685,7 +699,7 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">MotionRefineNet: Fine-Grained Pose Sequence Smoothing and Refinement</div>
-          <div class="pub-meta">Haolun Li, Weihuang Liu, Jiateng Liu, <i><b>Zhenhua Tang</b></i>, Chi-Man Pun, Qiguang Miao, Feng Xu, Hao Gao. · <b>ACM MM 2026</b></div>
+          <div class="pub-meta">Haolun Li, Weihuang Liu, Jiateng Liu, <i><b>Zhenhua Tang</b></i>, Chi-Man Pun, Qiguang Miao, Feng Xu, Hao Gao. · <b>ACM MM 2026</b> <span style="background:#fbbf24; color:#0f172a; padding:0 8px; border-radius:12px; font-weight:600;">CCF-A</span></div>
         </div>
       </div>
     </div>
@@ -699,7 +713,7 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">RAGG: Retrieval-Augmented Grasp Generation Model</div>
-          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Bin Zhu, Yanbin Hao, Chong-Wah Ngo, Richang Hong. · <b>AAAI 2025</b></div>
+          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Bin Zhu, Yanbin Hao, Chong-Wah Ngo, Richang Hong. · <b>AAAI 2025</b> <span style="background:#fbbf24; color:#0f172a; padding:0 8px; border-radius:12px; font-weight:600;">CCF-A</span></div>
         </div>
       </div>
     </div>
@@ -737,7 +751,7 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">3D Human Pose Estimation with Spatio-Temporal Criss-cross Attention</div>
-          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Zhaofan Qiu, Yanbin Hao, Richang Hong, Yaoting. · <b>CVPR 2023</b></div>
+          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Zhaofan Qiu, Yanbin Hao, Richang Hong, Yaoting. · <b>CVPR 2023</b> <span style="background:#fbbf24; color:#0f172a; padding:0 8px; border-radius:12px; font-weight:600;">CCF-A</span></div>
           <div class="pub-links"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Tang_3D_Human_Pose_Estimation_With_Spatio-Temporal_Criss-Cross_Attention_CVPR_2023_paper.pdf"><i class="fas fa-file-pdf"></i>PDF</a><a href="https://github.com/zhenhuat/STCFormer"><i class="fab fa-github"></i>Code</a></div>
         </div>
       </div>
@@ -792,7 +806,7 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">MLP-JCG: Multi-Layer Perceptron with Joint-Coordinate Gating for Efficient 3D Human Pose Estimation</div>
-          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Jia Li, Yanbin Hao, Richang Hong. · <b>IEEE TMM 2023</b></div>
+          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Jia Li, Yanbin Hao, Richang Hong. · <b>IEEE TMM 2023</b> <span style="background:#3b82f6; color:white; padding:0 8px; border-radius:12px; font-weight:500;">中科院一区</span></div>
           <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/10029937"><i class="fas fa-file-pdf"></i>PDF</a></div>
         </div>
       </div>
@@ -803,7 +817,7 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">FTCM: Frequency-Temporal Collaborative Module for Efficient 3D Human Pose Estimation in Video</div>
-          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yanbin Hao, Jia Li, Richang Hong. · <b>IEEE TCSVT 2023</b></div>
+          <div class="pub-meta"><i><b>Zhenhua Tang</b></i>, Yanbin Hao, Jia Li, Richang Hong. · <b>IEEE TCSVT 2023</b> <span style="background:#3b82f6; color:white; padding:0 8px; border-radius:12px; font-weight:500;">中科院一区</span></div>
         </div>
       </div>
     </div>
@@ -832,11 +846,23 @@
         </div>
         <div class="pub-content">
           <div class="pub-title">Pose-Based Composition Improvement for Portrait Photographs</div>
-          <div class="pub-meta">Xiaoyan Zhang, Zhuopeng Li, M Constable, K-L Chan, <i><b>Zhenhua Tang</b></i>, Yanggao Tang. · <b>IEEE TCSVT 2018</b></div>
+          <div class="pub-meta">Xiaoyan Zhang, Zhuopeng Li, M Constable, K-L Chan, <i><b>Zhenhua Tang</b></i>, Yanggao Tang. · <b>IEEE TCSVT 2018</b> <span style="background:#3b82f6; color:white; padding:0 8px; border-radius:12px; font-weight:500;">中科院一区</span></div>
           <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/8319951"><i class="fas fa-file-pdf"></i>PDF</a></div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- AWARDS (新增) -->
+  <div id="awards"></div>
+  <div class="section-card" data-aos="fade-up">
+    <h3 class="section-title"><i class="fas fa-trophy"></i> Honors & Awards</h3>
+    <ul class="clean-list">
+      <li><span class="list-bullet"></span> <strong>National Scholarship for Doctoral Students</strong> · 2023</li>
+      <li><span class="list-bullet"></span> <strong>CSC Scholarship</strong> (China Scholarship Council) · 2023</li>
+      <li><span class="list-bullet"></span> <strong>First-Class Doctoral Academic Scholarship</strong> (HFUT) · 2021 – 2023</li>
+      <li><span class="list-bullet"></span> <strong>Second-Class Master Academic Scholarship</strong> (SZU) · 2017 – 2019</li>
+    </ul>
   </div>
 
   <!-- SERVICE -->
@@ -845,20 +871,6 @@
     <h3 class="section-title"><i class="fas fa-handshake"></i> Academic Services</h3>
     <ul class="clean-list">
       <li><span class="list-bullet"></span> <strong>Reviewer</strong> · IEEE TIP, IEEE TMM, TCSVT, ACM TOMM, IEEE TCSS, NeurIPS, ECCV, ACM MM, PRCV, ACCV</li>
-    </ul>
-  </div>
-
-  <!-- EMPLOYMENT -->
-  <div id="employment"></div>
-  <div class="section-card" data-aos="fade-up">
-    <h3 class="section-title"><i class="fas fa-briefcase"></i> Employment</h3>
-    <ul class="clean-list">
-      <li><span class="list-bullet"></span> <strong>University of Macau</strong> · Postdoctoral Fellow (2025–present) <span style="margin-left:16px; background:rgba(251,191,36,0.1); padding:4px 16px; border-radius:40px; color:#b45309;">Prof. Chi-Man Pun</span></li>
-      <li><span class="list-bullet"></span> <strong>JD Explore Academy</strong> · Algorithm Engineer Intern (2022–2023)</li>
-      <li><span class="list-bullet"></span> <strong>HFUT</strong> · Research Assistant (2020–2021)</li>
-      <li><span class="list-bullet"></span> <strong>Shenzhen University</strong> · Research Assistant (2020)</li>
-      <li><span class="list-bullet"></span> <strong>Tencent</strong> · Online Practice (2018–2019)</li>
-      <li><span class="list-bullet"></span> <strong>TP-Link</strong> · Production Planner (2015)</li>
     </ul>
   </div>
 
