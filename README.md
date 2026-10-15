@@ -4,12 +4,12 @@ Buildless HTML, CSS and JavaScript, published through GitHub Pages.
 
 - `index.html`: biography, publications, experience and travel photos.
 - `site.css`: responsive layout and light/dark themes.
-- `site.js`: publication filters/search, theme switching and accessible photo dialog.
+- `site.js`: publication year/type filters, theme switching and accessible photo dialog.
 - `site-config.js`: optional visitor map configuration.
 
 ## Visitor map
 
-Register the homepage with a visitor-map provider that supplies an HTTPS image widget. Copy its image URL into `visitorMapImage` and its statistics/dashboard URL into `visitorMapLink` in `site-config.js`. Both fields are required. The section stays hidden until the image loads successfully. Never paste a private API key into this public repository. The map uses approximate locations from the provider and starts collecting after activation; no historical visitor data is fabricated.
+Register this homepage at https://mapmyvisitors.com/add and choose the map or globe widget. Copy the complete HTTPS `src` URL from your generated script into `visitorWidgetScript` in `site-config.js`. The integration supports MapMyVisitors map.js and globe.js with their public widget ID. The resulting map appears in the public Visitors section above the footer. Alternatively use an HTTPS image widget via `visitorMapImage` plus `visitorMapLink`; both fields are required for the image variant. The section stays hidden when unconfigured. Never paste a private API key into this public repository. The map uses approximate locations from the provider and starts collecting after activation; no historical visitor data is fabricated.
 
 ## Content maintenance
 
@@ -23,4 +23,5 @@ The latest supplied Chinese CV is the source for corrected education dates, Moti
 
 Publication totals (17 published/accepted; 8 first/corresponding author) are attributed to the CV. The selected list contains 17 titled records. The 2025 Probabilistic Generative Approach paper is listed as IEEE TED, explicitly confirmed by the user after reviewing the CV discrepancy. The CV mentions a PRCV 2026 paper without a title, so no additional record has been invented. New co-authored entries identify Zhenhua Tang as a co-author because the CV does not supply their complete author lists. Under-review submissions are not presented as accepted publications.
 
-`motion-lab.js` is an original dependency-free Canvas 3D projection of a procedural 17-joint skeleton. It is labeled as an illustration, starts paused, and suspends updates offscreen/in background tabs. It is not a demonstration of paper results. Ctrl/Cmd+K opens keyboard-accessible quick navigation. Glimpse's user-supplied framework is preserved at full resolution in `figs/glimpse_icml.png`.
+
+Publications now default to 2026, with click-only year and conference/journal controls, plus visible year/type headings. The interactive motion playground has been removed at the user's request. The Glimpse framework uses a versioned asset filename and eager loading to avoid a stale missing image or deferred load. Original image resolution is preserved.
