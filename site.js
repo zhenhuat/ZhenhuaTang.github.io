@@ -49,3 +49,31 @@
     } catch {}
   }
 })();
+(() => {
+  const lightbox = document.querySelector('#lightbox');
+  document.querySelectorAll('.framework-button').forEach(button => button.addEventListener('click', () => {
+    const image = button.querySelector('img');
+    lightbox.querySelector('img').src = image.src;
+    lightbox.querySelector('img').alt = image.alt;
+    lightbox.querySelector('p').textContent = 'Glimpse · Geometry Learning of Multi-scale Structural Priors';
+    lightbox.showModal();
+  }));
+  // Ensure a featured paper remains reachable after applying a publication filter.
+  document.querySelectorAll('.feature').forEach(a => a.addEventListener('click', () => {
+    document.querySelector('[data-filter="all"]').click();
+    const search = document.querySelector('#search'); search.value = ''; search.dispatchEvent(new Event('input'));
+  }));
+  const palette = document.querySelector('#command-palette');
+  const search = document.querySelector('#command-search');
+  const options = [...document.querySelectorAll('#command-options a')];
+  const open = () => { search.value = ''; options.forEach(a => a.hidden = false); document.querySelector('#command-empty').hidden = true; if (!palette.open) palette.showModal(); search.focus(); };
+  document.querySelector('#open-palette').addEventListener('click', open);
+  document.querySelector('#close-palette').addEventListener('click', () => palette.close());
+  document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); palette.open ? palette.close() : open(); } });
+  search.addEventListener('input', () => {
+    options.forEach(a => a.hidden = !a.textContent.toLowerCase().includes(search.value.toLowerCase()));
+    document.querySelector('#command-empty').hidden = options.some(a => !a.hidden);
+  });
+  search.addEventListener('keydown', e => { if (e.key === 'Enter') { const first = options.find(a => !a.hidden); if (first) first.click(); } });
+  options.forEach(a => a.addEventListener('click', () => palette.close()));
+})();
