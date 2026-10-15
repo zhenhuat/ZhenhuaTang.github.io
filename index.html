@@ -13,7 +13,7 @@
    Zhenhua Tang · 唐振华 | Research
   </title>
   <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='18' fill='%232f5be7'/%3E%3Ctext x='7' y='51' fill='white' font-size='30'%3EZHT%3C/text%3E%3C/svg%3E" rel="icon"/>
-  <link href="site.css?v=20261015d" rel="stylesheet"/>
+  <link href="site.css?v=20261015e" rel="stylesheet"/>
  </head>
  <body>
   <a class="skip" href="#main">
@@ -52,9 +52,6 @@
   <main id="main">
    <section class="hero" id="home">
     <div>
-     <p class="eyebrow">
-      3D VISION / HUMAN MOTION / EMBODIED INTERACTION
-     </p>
      <h1>
       Zhenhua Tang
       <span lang="zh">
@@ -65,7 +62,7 @@
       Postdoctoral Fellow · University of Macau
      </p>
      <p class="hero-description">
-      Understanding human motion. Building toward embodied interaction.
+      3D human motion perception, understanding, and embodied interaction.
      </p>
      <div class="contact">
       <a class="primary" href="mailto:zhenhuat@foxmail.com">
@@ -83,63 +80,45 @@
      </div>
      <p class="location">
       Macau SAR, China
-      <span>
-       ·
-      </span>
-      Working with Prof. Chi-Man Pun
      </p>
     </div>
     <div class="portrait">
      <img alt="Portrait of Zhenhua Tang" height="280" src="portrait-2026.jpg" width="240"/>
-     <span>
-      VISION INTO UNDERSTANDING
-     </span>
     </div>
    </section>
    <section class="about" id="about">
     <div class="section-heading">
-     <p class="eyebrow">
-      A LITTLE CONTEXT
-     </p>
      <h2>
-      About me
+      Research focus
      </h2>
     </div>
     <div class="bio">
-     <p>
-      I am a Postdoctoral Fellow at the
-      <strong>
-       University of Macau
-      </strong>
-      , working with
-      <strong>
-       Prof. Chi-Man Pun
-      </strong>
-      . I received my Ph.D. in Computer Science and Technology from
-      <strong>
-       Hefei University of Technology
-      </strong>
-      , advised by
-      <strong>
-       Prof. Richang Hong
-      </strong>
-      , and was a visiting joint-training Ph.D. student at
-      <strong>
-       Singapore Management University
-      </strong>
-      with
-      <strong>
-       Prof. Chong-Wah Ngo
-      </strong>
-      .
-     </p>
-     <p>
-      My research connects
-      <strong>
-       3D human motion perception, understanding, and embodied physical interaction
-      </strong>
-      . I study structured pose and motion modeling, action quality assessment, multi-person interaction understanding, and dexterous grasp generation.
-     </p>
+     <div class="research-themes">
+      <article>
+       <h3>
+        Structured pose &amp; motion
+       </h3>
+       <p>
+        Spatial structure, temporal dependencies, and frequency cues for efficient 3D human pose estimation, hand reconstruction, and motion refinement.
+       </p>
+      </article>
+      <article>
+       <h3>
+        Actions &amp; interactions
+       </h3>
+       <p>
+        Training-trajectory-based collaborative decoding for action quality assessment, and VLM-based instance-level reasoning for multi-person interaction.
+       </p>
+      </article>
+      <article>
+       <h3>
+        Dexterous physical interaction
+       </h3>
+       <p>
+        Task semantics, object geometry, and contact constraints for grasp generation, with kinematic temporal cues for pressure estimation.
+       </p>
+      </article>
+     </div>
      <div class="research-stats">
       <div>
        <strong>
@@ -157,14 +136,6 @@
         First / corresponding author
        </span>
       </div>
-      <div>
-       <strong>
-        3
-       </strong>
-       <span>
-        Connected research themes
-       </span>
-      </div>
      </div>
      <p class="stat-note">
       Publication totals as reported in my October 2026 CV.
@@ -173,18 +144,9 @@
    </section>
    <section id="research">
     <div class="section-heading">
-     <p class="eyebrow">
-      SELECTED WORK
-     </p>
      <h2>
       Research highlights
-      <span class="dot">
-       .
-      </span>
      </h2>
-     <p>
-      From structured perception to physical interaction.
-     </p>
     </div>
     <div class="featured">
      <a class="feature" href="#paper-1">
@@ -192,11 +154,8 @@
        <img alt="Glimpse framework: geometry learning of multi-scale structural priors" decoding="async" fetchpriority="high" height="1711" loading="eager" src="figs/glimpse-framework-2026.png" width="4001"/>
       </div>
       <div class="feature-copy">
-       <small>
-        01 / 3D HUMAN POSE
-       </small>
        <h3>
-        Glimpse: Geometry Learning of Multi-scale Structural Priors for 3D Pose Estimation
+        Glimpse
        </h3>
        <span>
         Explore publication ↓
@@ -208,11 +167,8 @@
        <img alt="SNS-Grasp: Semantic-guided Noise Scaling for Grasp Generation" loading="lazy" src="figs/sns_grasp_framework.png"/>
       </div>
       <div class="feature-copy">
-       <small>
-        02 / ROBOTIC GRASPING
-       </small>
        <h3>
-        SNS-Grasp: Semantic-guided Noise Scaling for Grasp Generation
+        SNS-Grasp
        </h3>
        <span>
         Explore publication ↓
@@ -224,11 +180,8 @@
        <img alt="3D Human Pose Estimation with Spatio-Temporal Criss-cross Attention" loading="lazy" src="figs/cvpr23_stc.png"/>
       </div>
       <div class="feature-copy">
-       <small>
-        03 / SPATIO-TEMPORAL LEARNING
-       </small>
        <h3>
-        3D Human Pose Estimation with Spatio-Temporal Criss-cross Attention
+        STCFormer
        </h3>
        <span>
         Explore publication ↓
@@ -236,52 +189,11 @@
       </div>
      </a>
     </div>
-    <div class="research-themes">
-     <article>
-      <span>
-       01 / PERCEPTION
-      </span>
-      <h3>
-       Structured pose &amp; motion
-      </h3>
-      <p>
-       Spatial structure, temporal dependencies, and frequency cues for efficient 3D human pose estimation, hand reconstruction, and motion refinement.
-      </p>
-     </article>
-     <article>
-      <span>
-       02 / UNDERSTANDING
-      </span>
-      <h3>
-       Actions &amp; interactions
-      </h3>
-      <p>
-       Training-trajectory-based collaborative decoding for action quality assessment, and VLM-based instance-level reasoning for multi-person interaction.
-      </p>
-     </article>
-     <article>
-      <span>
-       03 / EMBODIMENT
-      </span>
-      <h3>
-       Dexterous physical interaction
-      </h3>
-      <p>
-       Task semantics, object geometry, and contact constraints for grasp generation, with kinematic temporal cues for pressure estimation.
-      </p>
-     </article>
-    </div>
    </section>
    <section id="publication">
     <div class="section-heading">
-     <p class="eyebrow">
-      RESEARCH OUTPUT
-     </p>
      <h2>
       Publications
-      <span class="dot">
-       .
-      </span>
      </h2>
      <p>
       Selected published and accepted work. Full author lists are shown where available.
@@ -358,9 +270,6 @@
           <b>
            ICML 2026
           </b>
-          <span>
-           CCF-A
-          </span>
          </div>
          <div class="pub-links">
          </div>
@@ -499,9 +408,6 @@
           <b>
            AAAI 2025
           </b>
-          <span>
-           CCF-A
-          </span>
          </div>
          <div class="pub-links">
          </div>
@@ -623,9 +529,6 @@
           <b>
            CVPR 2023
           </b>
-          <span>
-           CCF-A
-          </span>
          </div>
          <div class="pub-links">
           <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Tang_3D_Human_Pose_Estimation_With_Spatio-Temporal_Criss-Cross_Attention_CVPR_2023_paper.pdf">
@@ -684,9 +587,6 @@
           <b>
            IEEE TMM 2023
           </b>
-          <span>
-           中科院一区
-          </span>
          </div>
          <div class="pub-links">
           <a href="https://ieeexplore.ieee.org/document/10029937">
@@ -713,9 +613,6 @@
           <b>
            IEEE TCSVT 2023
           </b>
-          <span>
-           中科院一区
-          </span>
          </div>
          <div class="pub-links">
          </div>
@@ -818,9 +715,6 @@
           <b>
            IEEE TCSVT 2018
           </b>
-          <span>
-           中科院一区
-          </span>
          </div>
          <div class="pub-links">
           <a href="https://ieeexplore.ieee.org/document/8319951">
@@ -835,20 +729,9 @@
     <p hidden="" id="empty">
      No publications in this category for the selected year.
     </p>
-    <aside class="ongoing">
-     <span>
-      ONGOING RESEARCH
-     </span>
-     <p>
-      Current work extends into action quality assessment, vision-language reasoning for multi-person interaction, and pressure estimation for physically grounded grasping.
-     </p>
-    </aside>
    </section>
    <section id="experience">
     <div class="section-heading">
-     <p class="eyebrow">
-      THE JOURNEY
-     </p>
      <h2>
       Experience &amp; education
      </h2>
@@ -924,9 +807,6 @@
    </section>
    <section id="projects">
     <div class="section-heading">
-     <p class="eyebrow">
-      RESEARCH IN PRACTICE
-     </p>
      <h2>
       Projects &amp; mentorship
      </h2>
@@ -950,11 +830,8 @@
       </p>
      </article>
      <article class="project-card">
-      <span class="project-label">
-       TEACHING &amp; SUPERVISION
-      </span>
       <h3>
-       Sharing knowledge, building together.
+       Teaching &amp; student supervision
       </h3>
       <p>
        <strong>
@@ -993,9 +870,6 @@
    </section>
    <div class="details-grid">
     <section id="service">
-     <p class="eyebrow">
-      COMMUNITY
-     </p>
      <h2>
       Academic service
      </h2>
@@ -1019,9 +893,6 @@
      </ul>
     </section>
     <section id="awards">
-     <p class="eyebrow">
-      RECOGNITION
-     </p>
      <h2>
       Honors &amp; awards
      </h2>
@@ -1055,18 +926,9 @@
    </div>
    <section id="travels">
     <div class="section-heading">
-     <p class="eyebrow">
-      BEYOND THE LAB
-     </p>
      <h2>
-      Places &amp; moments
-      <span class="dot">
-       .
-      </span>
+      Life beyond research
      </h2>
-     <p>
-      A few glimpses of life along the way.
-     </p>
     </div>
     <div class="gallery">
      <button aria-label="View photo: 我的家乡" class="photo">
@@ -1143,9 +1005,6 @@
      </button>
     </div>
     <div id="visitor-body">
-     <p class="visitor-subtitle">
-      See where visitors come from.
-     </p>
      <div id="visitor-widget">
      </div>
      <p id="visitor-status" role="status">
@@ -1169,9 +1028,6 @@
      <strong>
       Zhenhua Tang
      </strong>
-     <p>
-      Computer vision · Human motion · Robotic grasping
-     </p>
     </div>
     <div>
      <span>
@@ -1191,9 +1047,9 @@
    <p>
    </p>
   </dialog>
-  <script defer="" src="site-config.js?v=20261015d">
+  <script defer="" src="site-config.js?v=20261015e">
   </script>
-  <script defer="" src="site.js?v=20261015d">
+  <script defer="" src="site.js?v=20261015e">
   </script>
   <dialog id="command-palette">
    <div class="palette-head">
@@ -1208,39 +1064,21 @@
    <div id="command-options">
     <a href="#research">
      Research highlights
-     <span>
-      01
-     </span>
     </a>
     <a href="#publication">
      Publications
-     <span>
-      03
-     </span>
     </a>
     <a href="#experience">
      Experience &amp; education
-     <span>
-      04
-     </span>
     </a>
     <a href="#projects">
      Projects &amp; mentorship
-     <span>
-      05
-     </span>
     </a>
     <a href="cv.html">
      English curriculum vitae
-     <span>
-      ↗
-     </span>
     </a>
     <a href="#travels">
-     Life beyond the lab
-     <span>
-      06
-     </span>
+     Life beyond research
     </a>
    </div>
    <p hidden="" id="command-empty">
