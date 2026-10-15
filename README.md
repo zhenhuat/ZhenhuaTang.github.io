@@ -25,3 +25,5 @@ Publication totals (17 published/accepted; 8 first/corresponding author) are att
 
 
 Publications now default to 2026, with click-only year and conference/journal controls, plus visible year/type headings. The interactive motion playground has been removed at the user's request. The Glimpse framework uses a versioned asset filename and eager loading to avoid a stale missing image or deferred load. Original image resolution is preserved.
+
+The user-provided MapMyVisitors globe widget is now configured. At viewport widths of 1100px and above it occupies a reserved fixed right rail; narrower screens show it inline above the footer. A keyboard-accessible collapse/expand button keeps the card unobtrusive. The public widget ID is not a secret. Verified with the real provider: globe renders, fixed position persists while scrolling, no text overlap, and no overflow from 320px through 1920px.

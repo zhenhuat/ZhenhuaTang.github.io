@@ -53,13 +53,29 @@
   search.addEventListener('keydown', e => { if (e.key === 'Enter') { const first = options.find(a => !a.hidden); if (first) first.click(); } });
   options.forEach(a => a.addEventListener('click', () => palette.close()));
   const config = window.SITE_CONFIG || {}, visitors = document.querySelector('#visitors');
+  const toggleVisitors = document.querySelector('#toggle-visitors');
+  toggleVisitors.addEventListener('click', () => {
+    const collapsed = visitors.classList.toggle('is-collapsed');
+    document.querySelector('#visitor-body').hidden = collapsed;
+    toggleVisitors.textContent = collapsed ? '+' : '−';
+    toggleVisitors.setAttribute('aria-expanded', String(!collapsed));
+    toggleVisitors.setAttribute('aria-label', collapsed ? 'Expand visitor globe' : 'Collapse visitor globe');
+    if (!collapsed) window.dispatchEvent(new Event('resize'));
+  });
+  const widget = document.querySelector('#visitor-widget');
+  const status = document.querySelector('#visitor-status');
+  const ready = new MutationObserver(() => {
+    const inner = widget.querySelector('.mmvst_inner');
+    if ((inner && getComputedStyle(inner).display !== 'none') || widget.querySelector('#mapmyvisitors-widget')) { status.hidden = true; ready.disconnect(); }
+  });
+  ready.observe(widget, {childList:true, subtree:true, attributes:true, attributeFilter:['style']});
   if (config.visitorWidgetScript) {
     try {
       const url = new URL(config.visitorWidgetScript);
       if (url.protocol === 'https:' && url.hostname === 'mapmyvisitors.com' && ['/map.js', '/globe.js'].includes(url.pathname) && url.searchParams.get('d')) {
         const script = document.createElement('script'); script.id = url.pathname === '/globe.js' ? 'mmvst_globe' : 'mapmyvisitors'; script.src = url.href; script.async = true;
         visitors.hidden = false;
-        script.addEventListener('error', () => { visitors.hidden = true; });
+        script.addEventListener('error', () => { document.querySelector('#visitor-status').textContent = 'Visitor globe is temporarily unavailable.'; });
         document.querySelector('#visitor-widget').appendChild(script);
       }
     } catch {}
