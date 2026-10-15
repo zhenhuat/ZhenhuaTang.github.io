@@ -59,7 +59,7 @@
     document.querySelector('#visitor-body').hidden = collapsed;
     toggleVisitors.textContent = collapsed ? '+' : '−';
     toggleVisitors.setAttribute('aria-expanded', String(!collapsed));
-    toggleVisitors.setAttribute('aria-label', collapsed ? 'Expand visitor globe' : 'Collapse visitor globe');
+    toggleVisitors.setAttribute('aria-label', collapsed ? 'Expand visitor map' : 'Collapse visitor map');
     if (!collapsed) window.dispatchEvent(new Event('resize'));
   });
   const widget = document.querySelector('#visitor-widget');
@@ -69,13 +69,31 @@
     if ((inner && getComputedStyle(inner).display !== 'none') || widget.querySelector('#mapmyvisitors-widget')) { status.hidden = true; ready.disconnect(); }
   });
   ready.observe(widget, {childList:true, subtree:true, attributes:true, attributeFilter:['style']});
+  // Link to the provider's real public country/city statistics, discovered from this widget.
+  const details = document.querySelector('#visitor-details');
+  const statsObserver = new MutationObserver(() => {
+    const nativeLink = widget.querySelector('a[href]');
+    if (!nativeLink) return;
+    try {
+      const url = new URL(nativeLink.href);
+      if (url.hostname === 'mapmyvisitors.com' && url.pathname.startsWith('/web/')) {
+        url.protocol = 'https:';
+        details.href = url.href; details.hidden = false;
+        nativeLink.target = '_blank'; nativeLink.rel = 'noopener noreferrer';
+        if (nativeLink.href !== url.href) nativeLink.href = url.href;
+        statsObserver.disconnect();
+      }
+    } catch {}
+  });
+  statsObserver.observe(widget, {childList:true, subtree:true, attributes:true, attributeFilter:['href']});
+
   if (config.visitorWidgetScript) {
     try {
       const url = new URL(config.visitorWidgetScript);
       if (url.protocol === 'https:' && url.hostname === 'mapmyvisitors.com' && ['/map.js', '/globe.js'].includes(url.pathname) && url.searchParams.get('d')) {
         const script = document.createElement('script'); script.id = url.pathname === '/globe.js' ? 'mmvst_globe' : 'mapmyvisitors'; script.src = url.href; script.async = true;
         visitors.hidden = false;
-        script.addEventListener('error', () => { document.querySelector('#visitor-status').textContent = 'Visitor globe is temporarily unavailable.'; });
+        script.addEventListener('error', () => { document.querySelector('#visitor-status').textContent = 'Visitor map is temporarily unavailable.'; });
         document.querySelector('#visitor-widget').appendChild(script);
       }
     } catch {}
